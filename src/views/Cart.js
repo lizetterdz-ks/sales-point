@@ -51,6 +51,7 @@ const Cart = () => {
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
+        mode: 'no-cors',
       },
     })
     .then(res => {
@@ -69,6 +70,7 @@ const Cart = () => {
     let newStock = stock-1;
     fetch(`https://sales-point-server.herokuapp.com/items/${id}`, {
       method: 'PUT',
+      mode: 'no-cors',
       body: JSON.stringify({
         stock: newStock,
         timesSold: newTimesSold,

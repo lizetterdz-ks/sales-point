@@ -12,6 +12,7 @@ export default function Sales({data}) {
     }
     fetch(`https://sales-point-server.herokuapp.com/sales/${id}`, {
       method: 'PUT',
+      mode: 'no-cors',
       body: JSON.stringify({
         status: newStatus,
       }),

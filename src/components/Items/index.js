@@ -85,6 +85,7 @@ export default function DataGridDemo({data}) {
     let id = selection;
     fetch(`https://sales-point-server.herokuapp.com/items/${id}`, {
       method: 'DELETE',
+      mode: 'no-cors',
       body: JSON.stringify({
       }),
       headers: {
@@ -101,6 +102,16 @@ export default function DataGridDemo({data}) {
   const handleAddNew = () => {
     fetch('https://sales-point-server.herokuapp.com/items', {
       method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify({
+        name: itemName,
+        price: itemPrice,
+        stock: itemStock,
+        timesSold: 0
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
     })
     .then(res => {
       if(res.ok) {
